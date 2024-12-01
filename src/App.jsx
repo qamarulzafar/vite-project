@@ -25,7 +25,7 @@ function App() {
   }, [length, numberAllowed, charAlloed, setpassword]);
 
   const copyPasswordToClipborad = useCallback(() => {
-    passordRef.current.select()
+    passordRef.current?.select()
     window.navigator.clipboard.writeText(password);
   }, [password]);
 
@@ -41,23 +41,23 @@ function App() {
             {" "}
             Pasword Generator
           </div>
-          <div className="flex">
+          <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row ">
             <input
               type="text"
               value={password}
               placeholder="Password"
-              className="p-2 w-full focus:outline-none"
+              className="p-2 w-full focus:outline-none text-orange-400 rounded-2xl sm:rounded-none"
               readOnly
               ref={passordRef}
             />
             <button
               onClick={copyPasswordToClipborad}
-              className="bg-sky-400 px-3 hover:bg-sky-500"
+              className="bg-sky-400 p-3 hover:bg-sky-500 rounded-2xl sm:rounded-none"
             >
               Copy
             </button>
           </div>
-          <div className="flex justify-between flex-col md:flex-row items-center">
+          <div className="flex justify-between items-center flex-col md:flex-row ">
             <div className="my-3 flex items-center">
               <input
                 type="range"
